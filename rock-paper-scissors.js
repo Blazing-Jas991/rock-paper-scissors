@@ -35,18 +35,32 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
       alert("There is a Tie");
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
-      alert("Human Wins");
+      alert("You Win, Rock Crushes Scissors");
+      humanScore++;
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
-      alert("Human Wins");
+      alert("You Win, Scissors Cuts Paper");
+      humanScore++;
     } else if (humanChoice === "paper" && computerChoice === "rock") {
-      alert("Human Wins");
+      alert("You Win, Paper covers Rock");
+      humanScore++;
+    } else if (computerChoice === "rock" && humanChoice === "scissors") {
+      alert("Computer Wins, Rock Crushes Scissors");
+      computerScore++;
+    } else if (computerChoice === "scissors" && humanChoice === "paper") {
+      alert("Compuer Wins, Scissors Cuts Paper");
+      computerScore++;
     } else {
-      alert("Computer Wins");
+      alert("Computer Wins, Paper Covers Rock");
+      computerScore++;
     }
+    
     console.log(humanChoice);
     console.log(computerChoice);
-  
-}    
+    console.log(humanScore);
+    console.log(computerScore);
+
+}   
+
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
