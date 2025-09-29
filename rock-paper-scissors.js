@@ -1,3 +1,5 @@
+alert("We Are About To Play Rock, Paper, Scissors!");
+
 function getComputerChoice() {
     const randomChoice = Math.ceil(Math.random() * 3);
 
@@ -34,40 +36,49 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     if (humanChoice === computerChoice) {
-      alert("There is a Tie");
+      console.log("There is a Tie, Try Again");
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
-      alert("You Win, Rock Crushes Scissors");
+      console.log("You Win, Rock Crushes Scissors!");
       humanScore++;
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
-      alert("You Win, Scissors Cuts Paper");
+      console.log("You Win, Scissors Cuts Paper");
       humanScore++;
     } else if (humanChoice === "paper" && computerChoice === "rock") {
-      alert("You Win, Paper covers Rock");
+      console.log("You Win, Paper covers Rock");
       humanScore++;
     } else if (computerChoice === "rock" && humanChoice === "scissors") {
-      alert("Computer Wins, Rock Crushes Scissors");
+      console.log("Computer Wins, Rock Crushes Scissors");
       computerScore++;
     } else if (computerChoice === "scissors" && humanChoice === "paper") {
-      alert("Compuer Wins, Scissors Cuts Paper");
+      console.log("Compuer Wins, Scissors Cuts Paper");
+      computerScore++;
+    } else if (computerChoice === "paper" && humanChoice === "rock") {
+      console.log("Computer Wins, Paper Covers Rock");
       computerScore++;
     } else {
-      alert("Computer Wins, Paper Covers Rock");
-      computerScore++;
+      console.log("Try Again, that's not a valid option");
     }
     
-    console.log(humanChoice);
-    console.log(computerChoice);
-    console.log(humanScore);
-    console.log(computerScore);
+    console.log('You Chose: ' + humanChoice);
+    console.log('Computer Chose: ' + computerChoice);
+    console.log('Your Score: ' + humanScore);
+    console.log("Computer's Score: " + computerScore);
 
 }   
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
-
 function playGame() {
-  let (i = 0, )
+  for (let i = 0; i < 5; i++) {
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    const diff = computerScore-humanScore;
+  }
+    if (computerScore > humanScore) {
+      alert("Computer Won");
+    } else {
+      alert("You Won");
+    }
+    
 }
 
+playGame();
