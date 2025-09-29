@@ -13,12 +13,12 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let yourPick = prompt("Please enter your option:");
-  yourPick = yourPick.toLowerCase();
-  if (yourPick === "rock") {
+  let yourChoice = prompt("Please enter your option:");
+  yourChoice = yourChoice.toLowerCase();
+  if (yourChoice === "rock") {
     return "rock";
 
-  } else if (yourPick === "paper") {
+  } else if (yourChoice === "paper") {
     return "paper";
 
   } else {
