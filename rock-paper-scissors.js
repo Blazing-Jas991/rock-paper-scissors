@@ -1,10 +1,10 @@
 function getComputerChoice() {
-    const randomChoice = Math.random();
+    const randomChoice = Math.ceil(Math.random() * 3);
 
-    if (randomChoice < 1 / 3) {
+    if (randomChoice === 1) {
         return "rock";
 
-    }  else if (randomChoice < 2 / 3) {
+    }  else if (randomChoice === 2) {
        return "paper";
 
     }  else {
@@ -15,6 +15,7 @@ function getComputerChoice() {
 function getHumanChoice() {
   let yourChoice = prompt("Please enter your option:");
   yourChoice = yourChoice.toLowerCase();
+
   if (yourChoice === "rock") {
     return "rock";
 
@@ -65,4 +66,8 @@ const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
+function playGame() {
+  let (i = 0, )
+}
 
