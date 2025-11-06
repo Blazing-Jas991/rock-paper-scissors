@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="container">
+            <button id="button1">ROCK</button>
+            <button id="button2">PAPER</button>
+            <button id="button3">SCISSORS</button>
+        </div>
+        <div>
+            <span id="input-text"></span> <br></br> <span id="computer-text"></span>  
+        </div>  
+
+        <script>
+            const rockButton = document.querySelector("#button1");
+            const paperButton = document.querySelector("#button2");
+            const scissorsButton = document.querySelector("#button3");
+            const container = document.querySelector("#container");
+            let span = document.querySelector("#input-text");
+            let cSpan = document.querySelector("#computer-text");
+
+            rockButton.addEventListener("click", chooseRock);
+            function chooseRock(e) {
+                e.preventDefault();
+                span.textContent = "You Picked: " + "Rock";
+                getComputerChoice();
+            };
+
+            paperButton.addEventListener("click", choosePaper);
+            function choosePaper(e) {
+                e.preventDefault();
+                span.textContent = "You Picked: " + " Paper";
+                getComputerChoice();
+            };
+
+            scissorsButton.addEventListener("click", chooseScissors);
+            function chooseScissors(e) {
+                e.preventDefault();
+                span.textContent = "You Picked: " + " Scissors";
+                getComputerChoice();
+            };
+
+            computerButton.addEventListener("click", getComputerChoice);
+            function getComputerChoice() {
+                const randomChoice = Math.ceil(Math.random() * 3);
+                let computerPick = "";
+
+                if (randomChoice === 1) {
+                    computerPick = "rock";
+                    cSpan.textContent = "Computer Picked: " + computerPick;
+                    return computerPick;
+                } else if (randomChoice === 2) {
+                    computerPick = "paper";
+                    cSpan.textContent = "Computer Picked: " + computerPick;
+                    return computerPick;
+                } else {
+                    computerPick = "scissors";
+                    cSpan.textContent = "Computer Picked: " + computerPick;
+                    return computerPick;
+                };
+            };
+
+            
+        </script>
+
+    </body>
+</html>
