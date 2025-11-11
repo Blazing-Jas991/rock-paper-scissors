@@ -12,7 +12,11 @@
             <button id="button3">SCISSORS</button>
         </div>
         <div>
-            <span id="input-text"></span> <br></br> <span id="computer-text"></span>  
+            <span id="input-text"></span> <br></br> <span id="computer-text"></span> 
+            <p id="round-winner"></p>
+            <p id="yourScore"> </p>
+            <p id="comScore"></p>
+            <p id="scoreCard"></p>
         </div>  
 
         <script>
@@ -22,47 +26,78 @@
             const container = document.querySelector("#container");
             let span = document.querySelector("#input-text");
             let cSpan = document.querySelector("#computer-text");
+            let resultSpan = document.querySelector("#round-winner");
+            let yourScore = document.querySelector("#yourScore");
+            let comScore = document.querySelector("#comScore");
+            let scoreCard = document.querySelector("#scoreCard");
+            let humanScore = 0;
+            let computerScore = 0;
 
             rockButton.addEventListener("click", chooseRock);
-            function chooseRock(e) {
-                e.preventDefault();
-                span.textContent = "You Picked: " + "Rock";
-                getComputerChoice();
+            function chooseRock() {
+                let humanChoice = "Rock";
+                span.textContent = "You picked: Rock";
+                playRound();
             };
 
             paperButton.addEventListener("click", choosePaper);
-            function choosePaper(e) {
-                e.preventDefault();
-                span.textContent = "You Picked: " + " Paper";
-                getComputerChoice();
+            function choosePaper() {
+                let humanChoice = "Rock";
+                span.textContent = "You picked: Paper";
+                playRound();
             };
 
             scissorsButton.addEventListener("click", chooseScissors);
-            function chooseScissors(e) {
-                e.preventDefault();
-                span.textContent = "You Picked: " + " Scissors";
-                getComputerChoice();
+            function chooseScissors() {
+                let humanChoice = "Rock";
+                span.textContent = "You picked: Scissors";
+                playRound();
             };
 
-            computerButton.addEventListener("click", getComputerChoice);
+            function playRound() {
+                getComputerChoice();
+                let humanChoice = "Rock" || "Scissors" || "Paper";
+                let computerChoice = getComputerChoice();
+                if (computerChoice === humanChoice) {
+                    resultSpan.innerText = "Tie";
+                } else if (computerChoice === "Rock" && humanChoice === "Paper") {
+                    resultSpan.innerText = "You won, Paper covers Rock";
+                } else if (computerChoice === "Rock" && humanChoice === "Scissors") {
+                    resultSpan.innerText = "Computer won, Rock crushes Scissors";
+                } else if (computerChoice === "Paper" && humanChoice === "Scissors") {
+                    resultSpan.innerText = "You won, Scissors cuts Paper";
+                } else if (computerChoice === "Paper" && humanChoice === "Rock") {
+                    resultSpan.innerText = "Computer won, Paper covers Rock";
+                } else if (computerChoice === "Scissors" && humanChoice === "Rock") {
+                    resultSpan.innerText = "You won, Rock crushes Scissors";
+                } else if (computerChoice === "Scissors" && humanChoice === "Paper") {
+                    resultSpan.innerText = "Computer won, Scissors cuts Paper";
+                } else {
+                    resultSpan.innerText = "Invalid Option";
+                };
+            };
+
             function getComputerChoice() {
                 const randomChoice = Math.ceil(Math.random() * 3);
                 let computerPick = "";
 
                 if (randomChoice === 1) {
-                    computerPick = "rock";
+                    computerPick = "Rock";
                     cSpan.textContent = "Computer Picked: " + computerPick;
                     return computerPick;
                 } else if (randomChoice === 2) {
-                    computerPick = "paper";
+                    computerPick = "Paper";
                     cSpan.textContent = "Computer Picked: " + computerPick;
                     return computerPick;
                 } else {
-                    computerPick = "scissors";
+                    computerPick = "Scissors";
                     cSpan.textContent = "Computer Picked: " + computerPick;
                     return computerPick;
                 };
             };
+
+            
+
 
             
         </script>
