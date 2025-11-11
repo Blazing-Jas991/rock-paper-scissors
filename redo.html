@@ -35,43 +35,96 @@
 
             rockButton.addEventListener("click", chooseRock);
             function chooseRock() {
+                let computerChoice = getComputerChoice();
                 let humanChoice = "Rock";
+                comScore.textContent = "Computer Score: " + computerScore;
+                yourScore.textContent = "Your Score: " + humanScore;
                 span.textContent = "You picked: Rock";
-                playRound();
+                if (computerChoice === humanChoice) {
+                    resultSpan.innerText = "Tie";
+                } else if (computerChoice === "Paper") {
+                    resultSpan.innerText = " Computer won, Paper covers Rock";
+                    computerScore++;
+                    comScore.innerText = "Computer Score: " + computerScore;
+                } else if (computerChoice === "Scissors") {
+                    resultSpan.innerText = "You won, Rock crushes Scissors";
+                    humanScore++;
+                    yourScore.innerText = "Your Score: " + humanScore;
+                } else {
+                    return null;
+                };
             };
 
             paperButton.addEventListener("click", choosePaper);
             function choosePaper() {
-                let humanChoice = "Rock";
+                let computerChoice = getComputerChoice();
+                let humanChoice = "Paper";
+                comScore.textContent = "Computer Score: " + computerScore;
+                yourScore.textContent = "Your Score: " + humanScore;
                 span.textContent = "You picked: Paper";
-                playRound();
+                if (computerChoice === humanChoice) {
+                    resultSpan.innerText = "Tie";
+                } else if (computerChoice === "Scissors") {
+                    resultSpan.innerText = " Computer won, Scissors cuts Paper";
+                    computerScore++;
+                    comScore.innerText = "Computer Score: " + computerScore;
+                } else {
+                    resultSpan.innerText = "You won, Paper covers Rock";
+                    humanScore++;
+                    yourScore.innerText = "Your Score: " + humanScore;
+                };
+                
             };
 
             scissorsButton.addEventListener("click", chooseScissors);
             function chooseScissors() {
-                let humanChoice = "Rock";
+                let computerChoice = getComputerChoice();
+                let humanChoice = "Scissors";
+                comScore.textContent = "Computer Score: " + computerScore;
+                yourScore.textContent = "Your Score: " + humanScore;
                 span.textContent = "You picked: Scissors";
-                playRound();
+                if (computerChoice === humanChoice) {
+                    resultSpan.innerText = "Tie";
+                } else if (computerChoice === "Rock") {
+                    resultSpan.innerText = " Computer won, Rock crushes Scissors";
+                    computerScore++;
+                    comScore.innerText = "Computer Score: " + computerScore;
+                } else {
+                    resultSpan.innerText = "You won, Scissors cuts Paper";
+                    humanScore++;
+                    yourScore.innerText = "Your Score: " + humanScore;
+                };
             };
 
             function playRound() {
-                getComputerChoice();
-                let humanChoice = "Rock" || "Scissors" || "Paper";
-                let computerChoice = getComputerChoice();
+
+                
                 if (computerChoice === humanChoice) {
                     resultSpan.innerText = "Tie";
                 } else if (computerChoice === "Rock" && humanChoice === "Paper") {
                     resultSpan.innerText = "You won, Paper covers Rock";
+                    humanScore++;
+                    yourScore.innerText = humanScore;
                 } else if (computerChoice === "Rock" && humanChoice === "Scissors") {
                     resultSpan.innerText = "Computer won, Rock crushes Scissors";
+                    computerScore++;
+                    comScore.innerText = computerScore;
                 } else if (computerChoice === "Paper" && humanChoice === "Scissors") {
                     resultSpan.innerText = "You won, Scissors cuts Paper";
+                    humanScore++;
+                    yourScore.innerText = humanScore;
                 } else if (computerChoice === "Paper" && humanChoice === "Rock") {
                     resultSpan.innerText = "Computer won, Paper covers Rock";
+                    computerScore++;
+                    comScore.innerText = computerScore;
                 } else if (computerChoice === "Scissors" && humanChoice === "Rock") {
                     resultSpan.innerText = "You won, Rock crushes Scissors";
+                    humanScore++;
+                    yourScore.innerText = humanScore;
                 } else if (computerChoice === "Scissors" && humanChoice === "Paper") {
                     resultSpan.innerText = "Computer won, Scissors cuts Paper";
+                    computerScore++;
+                    comScore.innerText = computerScore;
                 } else {
                     resultSpan.innerText = "Invalid Option";
                 };
