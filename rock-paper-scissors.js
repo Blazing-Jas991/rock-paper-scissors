@@ -11,8 +11,8 @@ function getComputerChoice() {
 
     }  else {
        return "scissors";
-    }
-}
+    };
+};
 
 function getHumanChoice() {
   let yourChoice = prompt("Please enter your option:");
@@ -26,8 +26,8 @@ function getHumanChoice() {
 
   } else {
     return "scissors";
-  }
-}
+  };
+};
 
 
 let humanScore = 0;
@@ -57,7 +57,7 @@ function playRound(humanChoice, computerChoice) {
       computerScore++;
     } else {
       console.log("Try Again, that's not a valid option");
-    }
+    };
     
     console.log('You Chose: ' + humanChoice);
     console.log('Computer Chose: ' + computerChoice);
@@ -72,13 +72,13 @@ function playGame() {
     const computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
     const diff = computerScore-humanScore;
-  }
+  };
     if (computerScore > humanScore) {
       alert("Computer Won");
     } else {
       alert("You Won");
-    }
+    };
     
-}
+};
 
 playGame();
