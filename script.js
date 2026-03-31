@@ -39,7 +39,8 @@ function chooseRock() {
     remainingMoves();
     comScore.textContent = "Computer Score: " + computerScore;
     yourScore.textContent = "Your Score: " + humanScore;
-    clickCounter --;
+    clickCounter --
+    
 };
 
 paperButton.addEventListener("click", choosePaper);
@@ -49,7 +50,8 @@ function choosePaper() {
     remainingMoves();
     comScore.textContent = "Computer Score: " + computerScore;
     yourScore.textContent = "Your Score: " + humanScore;
-    clickCounter --;
+    clickCounter --
+    
 };
 
 scissorsButton.addEventListener("click", chooseScissors);
@@ -59,7 +61,8 @@ function chooseScissors() {
     remainingMoves();
     comScore.textContent = "Computer Score: " + computerScore;
     yourScore.textContent = "Your Score: " + humanScore;
-    clickCounter --;
+    clickCounter --
+    
 };
 
 function playGame() {
@@ -104,32 +107,26 @@ function playGame() {
 function remainingMoves() {
     if (clickCounter === 0 && computerScore < humanScore) {
         scoreCard.textContent = "After Five Rounds, You won the game: " + humanScore + " - " + computerScore;
-        resetButton.textContent = "RESTART GAME";
-        containerTwo.appendChild(resetButton);
-        resetButton.disabled = false;
-        scissorsButton.disabled = true;
-        rockButton.disabled = true;
-        paperButton.disabled = true;
+        anotherRound();
         return;
     } else if (clickCounter === 0 && computerScore > humanScore) {
         scoreCard.textContent = "After Five Rounds, Computer won the game: " + computerScore + " - " + humanScore;
-        resetButton.textContent = "RESTART GAME";
-        containerTwo.appendChild(resetButton);
-        resetButton.disabled = false;
-        scissorsButton.disabled = true;
-        rockButton.disabled = true;
-        paperButton.disabled = true;
+        anotherRound();
         return;
     } else if(clickCounter === 0 && computerScore === humanScore) {
         scoreCard.textContent = "After Five Rounds, There was a Tie, Please play another round";
-        resetButton.textContent = "RESTART GAME";
-        containerTwo.appendChild(resetButton);
-        resetButton.disabled = false;
-        scissorsButton.disabled = true;
-        rockButton.disabled = true;
-        paperButton.disabled = true;
+        anotherRound();
         return;
     };
+};
+
+function anotherRound() {
+    resetButton.textContent = "RESTART GAME";
+    containerTwo.appendChild(resetButton);
+    resetButton.disabled = false;
+    scissorsButton.disabled = true;
+    rockButton.disabled = true;
+    paperButton.disabled = true;
 };
 
 function reset() {
