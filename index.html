@@ -1,24 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <div id="container">
-            <button id="button1">ROCK</button>
-            <button id="button2">PAPER</button>
-            <button id="button3">SCISSORS</button>
-        </div>
-        <div class="container-two">
-            <span id="input-text"></span> <br></br> <span id="computer-text"></span> 
-            <p id="round-winner"></p>
-            <p id="yourScore"> </p>
-            <p id="comScore"></p>
-            <p id="scoreCard"></p>
-        </div>  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="rock.css" />
+  </head>
+  <body>
+    <div class="header-text">
+      <p>Welcome to Rock-Paper-Scissors</p>
+      <p>Winner will be declared after Five rounds</p>
+    </div>
 
-        <script src="script.js"></script>
-    </body>
+    <div class="play-area">
+      <div id="buttons-container">
+        <button class="play-button" id="rock-btn">
+          🪨<span class="choice-tip">Rock</span>
+        </button>
+        <button class="play-button" id="paper-btn">
+          📄<span class="choice-tip">Paper</span>
+        </button>
+        <button class="play-button" id="scissors-btn">
+          ✂️<span class="choice-tip">Scissors</span>
+        </button>
+      </div>
+
+      <div class="arena">
+        <div class="fighter">
+          <span class="fighter-label">You</span>
+          <div id="hand-you" class="hand-display">🤜</div>
+          <p id="input-text" class="human-selection"></p>
+        </div>
+        <span class="vs-badge">vs</span>
+        <div class="fighter">
+          <span class="fighter-label">Computer</span>
+          <div id="hand-cpu" class="hand-display">🤜</div>
+          <p id="computer-text" class="computer-selection"></p>
+        </div>
+      </div>
+      <p id="round-winner" class="winner-of-round"></p>
+    </div>
+
+    <div class="texts-container">
+      <div class="human-scorecard">
+        <p>Your Score</p>
+        <p id="yourScore" class="human-score"></p>
+      </div>
+      <div class="computer-scorecard">
+        <p>Computer's Score</p>
+        <p id="comScore" class="computer-score"></p>
+      </div>
+    </div>
+    <div class="score-card-container">
+      <p id="scoreCard" class="total-score"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
